@@ -6,6 +6,16 @@
     <%= f.text_field :number %>
   </div>
 
+  <div class="field">
+    <%= f.label :current_station, "Current station" %>
+    <%= f.collection_select :current_station_id, RailwayStation.all, :id, :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :route, "Route" %>
+    <%= f.collection_select :id, Route.all, :id, :name %>
+  </div>
+
   <div class="actions">
     <%= f.submit "#{ @train.new_record? ? 'Create' : 'Update' }" %>
   </div>
