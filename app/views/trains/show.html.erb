@@ -5,6 +5,28 @@
   <%= @train.number %>
 </p>
 
+<% if @train.carriages.nil? %>
+  <p>Does not have carriage</p>
+<% else %>
+  <p>
+     <strong>Train carriages</strong>
+     <ul>
+       <% @train.carriages.each do |carriage| %>
+        <li><%= link_to "Carriage number: #{carriage.number}", carriage %></li>
+        <li><%= link_to "Carriage type: #{carriage.carriage_type}", carriage %></li>
+        <li><%= link_to "Carriage top seats: #{carriage.top_seats}", carriage %></li>
+        <li><%= link_to "Carriage bottom seats: #{carriage.bottom_seats}", carriage %></li>
+        <li><%= link_to "Carriage side top seats: #{carriage.side_top_seats}", carriage %></li>
+        <li><%= link_to "Carriage side bottom seats: #{carriage.side_bottom_seats}", carriage %></li>
+       <% end %>
+     </ul>
+  </p>
+<% end %>
+
+<p>
+  <%= link_to "Add carriage", new_carriage_path(@train) %>
+</p>
+
 <p>
   <strong>On railway station:</strong>
   <% if @train.current_station.present? %>
