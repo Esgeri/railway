@@ -1,5 +1,5 @@
 class Carriage < ApplicationRecord
   belongs_to :train
 
-  validates :number, :carriage_type, presence: true
+  validates :number, :top_seats, :bottom_seats, presence: true
 end
