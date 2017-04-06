@@ -8,7 +8,7 @@
 
   <div class="field">
     <%= f.label :carriage_type %><br>
-    <%= f.select :carriage_type, ["Economy", "Coupe"] %>
+    <%= f.select :carriage_type, ["Economy", "Coupe", "OnlySeatCarriage", "CBCarriage"] %>
   </div>
 
   <div class="field">
@@ -29,6 +29,11 @@
   <div class="field">
     <%= f.label :side_bottom_seats %><br>
     <%= f.number_field :side_bottom_seats %>
+  </div>
+
+  <div class="field">
+    <%= f.label :only_seat %><br>
+    <%= f.number_field :only_seat %>
   </div>
 
   <div class="field">
