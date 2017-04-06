@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>Station title:</strong>
   <%= @railway_station.title %>
 </p>
 
@@ -11,7 +11,7 @@
   <p>The station enters the following routes:</p>
   <ul>
     <% @railway_station.routes.each do |route| %>
-      <li><%= route.name %></li>
+      <li><%= link_to route.name, route %></li>
     <% end %>
   </ul>
 <% end %>

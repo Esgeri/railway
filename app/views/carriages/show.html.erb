@@ -30,5 +30,9 @@
   Side bottom seats: <%= @carriage.side_bottom_seats %>
 </p>
 
+<p>
+  Only seats: <%= @carriage.only_seat %>
+</p>
+
 <%= link_to 'Edit', edit_carriage_path(@carriage) %>
 <%= link_to "Back", carriages_path %>

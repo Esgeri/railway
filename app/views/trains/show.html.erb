@@ -1,23 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Number:</strong>
+  <strong>Train number:</strong>
   <%= @train.number %>
 </p>
 
-<% if @train.carriages.nil? %>
+<% if @train.sort_carriages.empty? %>
   <p>Does not have carriage</p>
 <% else %>
   <p>
-     <strong>Train carriages</strong>
+     <strong>Train carriages list:</strong>
      <ul>
-       <% @train.carriages.each do |carriage| %>
+       <% @train.sort_carriages.each do |carriage| %>
         <li><%= link_to "Carriage number: #{carriage.number}", carriage %></li>
-        <li><%= link_to "Carriage type: #{carriage.carriage_type}", carriage %></li>
-        <li><%= link_to "Carriage top seats: #{carriage.top_seats}", carriage %></li>
-        <li><%= link_to "Carriage bottom seats: #{carriage.bottom_seats}", carriage %></li>
-        <li><%= link_to "Carriage side top seats: #{carriage.side_top_seats}", carriage %></li>
-        <li><%= link_to "Carriage side bottom seats: #{carriage.side_bottom_seats}", carriage %></li>
        <% end %>
      </ul>
   </p>
@@ -30,7 +25,7 @@
 <p>
   <strong>On railway station:</strong>
   <% if @train.current_station.present? %>
-    <%= @train.current_station.title %>
+    <%= link_to @train.current_station.title, @train.current_station %>
   <% else %>
     No railway stations are marked!
   <% end %>
@@ -39,7 +34,7 @@
 <p>
   <strong>On route:</strong>
   <% if @train.route.present? %>
-    <%= @train.route.name %>
+    <%= link_to @train.route.name, @train.route %>
   <% else %>
     Route not assigned
   <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170402051712) do
+ActiveRecord::Schema.define(version: 20170405191846) do
 
   create_table "carriages", force: :cascade do |t|
     t.integer  "number"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170402051712) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "train_id"
+    t.integer  "only_seat"
     t.index ["train_id"], name: "index_carriages_on_train_id"
   end
 
@@ -34,6 +35,7 @@ ActiveRecord::Schema.define(version: 20170402051712) do
   create_table "railway_stations_routes", force: :cascade do |t|
     t.integer "railway_station_id"
     t.integer "route_id"
+    t.integer "position",           default: 0
   end
 
   create_table "routes", force: :cascade do |t|
@@ -44,10 +46,13 @@ ActiveRecord::Schema.define(version: 20170402051712) do
 
   create_table "trains", force: :cascade do |t|
     t.string   "number"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.integer  "current_station_id"
+    t.boolean  "sort_carriage",      default: true
+    t.integer  "route_id"
     t.index ["current_station_id"], name: "index_trains_on_current_station_id"
+    t.index ["route_id"], name: "index_trains_on_route_id"
   end
 
   create_table "users", force: :cascade do |t|
