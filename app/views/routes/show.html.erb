@@ -16,8 +16,9 @@
     <table>
       <thead>
         <tr>
-          <td width="100px">Station title:</td>
+          <td width="200px">Station title:</td>
           <td>Position</td>
+          <td colspan="2">Arrival time  ||  Departure time</td>
         </tr>
       </thead>
 
@@ -28,6 +29,14 @@
             <td>
               <%= form_tag update_position_railway_station_path(station), method: :patch do %>
                 <%= number_field_tag :position, station.position_in(@route) %>
+                <%= hidden_field_tag :route_id, @route.id %>
+                <%= submit_tag 'Update' %>
+              <% end %>
+            </td>
+            <td>
+              <%= form_tag update_time_railway_station_path(station), method: :patch do %>
+                <%= time_field_tag :arrival_time, station.change_arrival_time_in(@route) %>
+                <%= time_field_tag :departure_time, station.change_departure_time_in(@route) %>
                 <%= hidden_field_tag :route_id, @route.id %>
                 <%= submit_tag 'Update' %>
               <% end %>
