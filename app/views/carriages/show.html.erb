@@ -34,4 +34,5 @@
   Only seats: <%= @carriage.only_seat %>
 </p>
 
-<%= link_to "Back", @carriage.train %>
+<%= link_to 'Edit', edit_carriage_path(@carriage) %> |
+<%= link_to 'Back', @carriage.train %>

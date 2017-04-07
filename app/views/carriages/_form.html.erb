@@ -37,6 +37,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit 'Create' %>
+    <%= f.submit "#{ @carriage.new_record? ? 'Create' : 'Update' }" %>
   </div>
 <% end %>

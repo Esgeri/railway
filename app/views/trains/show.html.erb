@@ -12,7 +12,12 @@
      <strong>Train carriages list:</strong>
      <ul>
        <% @train.sort_carriages.each do |carriage| %>
-        <li><%= link_to "Carriage number: #{carriage.number}", carriage %></li>
+        <li>
+          <%= link_to "Carriage number: #{carriage.number}", carriage %>
+          <%= link_to 'Show', carriage_path(carriage) %>
+          <%= link_to 'Edit', edit_carriage_path(carriage) %> |
+          <%= link_to 'Delete', carriage_path(carriage), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </li>
        <% end %>
      </ul>
   </p>
