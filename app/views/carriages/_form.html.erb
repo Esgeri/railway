@@ -1,4 +1,4 @@
-<%= form_for(@carriage) do |f| %>
+<%= form_for [@train, @carriage] do |f| %>
   <%= render 'common/errors', resource: @carriage %>
 
   <div class="field">
@@ -34,11 +34,6 @@
   <div class="field">
     <%= f.label :only_seat %><br>
     <%= f.number_field :only_seat %>
-  </div>
-
-  <div class="field">
-    <%= f.label :train, "Add to train. Choose:" %><br>
-    <%= f.collection_select :train_id, Train.all, :id, :number %>
   </div>
 
   <div class="actions">
