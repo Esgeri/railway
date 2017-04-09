@@ -5,11 +5,11 @@ class Search
   attr_reader :search_result
 
   def find_start_station
-    @start_station = RailwayStation.find(start_station_id)
+    @start_station ||= RailwayStation.find(start_station_id)
   end
 
   def find_end_station
-    @end_station = RailwayStation.find(end_station_id)
+    @end_station ||= RailwayStation.find(end_station_id)
   end
 
   def search_run
