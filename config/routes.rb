@@ -5,6 +5,12 @@ Rails.application.routes.draw do
 
   resources :routes
 
+  resource :search, only: [ :show, :create ]
+
+  resources :tickets, only: [ :create, :show ] do
+    post :buy, on: :collection
+  end
+
   resources :railway_stations do
     patch :update_position, on: :member
     patch :update_time, on: :member

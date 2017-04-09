@@ -1,0 +1,29 @@
+<h1>Ticket order</h1>
+
+<h2>Information</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <th>Train number</th>
+      <td><%= @ticket.train.number %></td>
+    </tr>
+    <tr>
+      <th>Route</th>
+      <td><%= @ticket.train.route.name %></td>
+    </tr>
+    <tr>
+      <th>Start station</th>
+      <td><%= @ticket.start_station.title %></td>
+    </tr>
+    <tr>
+      <th>End station</th>
+      <td><%= @ticket.end_station.title %></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Passenger information</h2>
+<div class="field">
+  <%= render 'form' %>
+</div>
