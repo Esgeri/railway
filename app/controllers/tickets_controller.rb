@@ -10,11 +10,11 @@ class TicketsController < ApplicationController
     if @ticket.save
       redirect_to @ticket, notice: 'Thanks for bought!'
     else
-      render :buy
+      render :new
     end
   end
 
-  def buy
+  def new
     @ticket = Ticket.new(train_id: params[:train_id],
                                         start_station_id: params[:start_station_id],
                                         end_station_id: params[:end_station_id])

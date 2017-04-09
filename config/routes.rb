@@ -7,9 +7,7 @@ Rails.application.routes.draw do
 
   resource :search, only: [ :show, :create ]
 
-  resources :tickets, only: [ :create, :show ] do
-    post :buy, on: :collection
-  end
+  resources :tickets, only: [ :show, :create, :new ]
 
   resources :railway_stations do
     patch :update_position, on: :member
