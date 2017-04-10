@@ -1,0 +1,17 @@
+<h1>Carriages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Type</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @carriages %>
+  </tbody>
+</table>
+
+<%= link_to 'Add carriage', new_admin_carriage_path %>

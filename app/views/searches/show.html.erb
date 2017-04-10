@@ -2,9 +2,6 @@
 
 <%= render 'form', search: @search %>
 
-<%= link_to 'Back', 'welcome/index' %>
-
-
 <% if @search.search_result %>
   <% if @search.search_result.empty? %>
     <p>Not found!</p>
@@ -16,22 +13,33 @@
           <th>Route</th>
           <th>Start station</th>
           <th>End station</th>
+          <th colspan="2"></th>
         </tr>
       </thead>
 
       <tbody>
         <% @search.search_result.each do |train| %>
           <tr>
-            <td><%= link_to train.number, train %></td>
-            <td><%= link_to train.route.name, train.route %></td>
+            <td><%= link_to train.number, [:admin, train] %></td>
+            <td><%= link_to train.route.name, [:admin, train.route] %></td>
             <td><%= train.route.railway_stations.first.change_arrival_time_in(train.route) %></td>
             <td><%= train.route.railway_stations.first.change_departure_time_in(train.route) %></td>
             <td>
-              <%= form_tag new_ticket_path, method: :get do %>
-                <%= hidden_field_tag :train_id, train.id %>
-                <%= hidden_field_tag :start_station_id, @search.start_station_id %>
-                <%= hidden_field_tag :end_station_id, @search.end_station_id %>
-                <%= submit_tag 'Go to the ticket booking page' %>
+              <% if current_user %>
+                <% current_user.admin? %>
+                <%= form_tag new_admin_ticket_path, method: :get do %>
+                  <%= hidden_field_tag :train_id, train.id %>
+                  <%= hidden_field_tag :start_station_id, @search.start_station_id %>
+                  <%= hidden_field_tag :end_station_id, @search.end_station_id %>
+                  <%= submit_tag 'Go to the ticket booking page' %>
+                <% end %>
+              <% else %>
+                <%= form_tag new_ticket_path, method: :get do %>
+                  <%= hidden_field_tag :train_id, train.id %>
+                  <%= hidden_field_tag :start_station_id, @search.start_station_id %>
+                  <%= hidden_field_tag :end_station_id, @search.end_station_id %>
+                  <%= submit_tag 'Go to the ticket booking page' %>
+                <% end %>
               <% end %>
             </td>
           </tr>
