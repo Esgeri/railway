@@ -5,4 +5,10 @@ class User < ApplicationRecord
               :recoverable, :rememberable, :validatable, :confirmable
 
   has_many :tickets
+
+  validates :first_name, :last_name, presence: true
+
+  def user_initials
+    "#{first_name} - #{last_name}"
+  end
 end
