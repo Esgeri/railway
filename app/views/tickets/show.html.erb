@@ -2,13 +2,11 @@
 
 <h1>Ticket order information</h1>
 
-<p>
-  Bought date: <%= @ticket.created_at.strftime('%d.%m.%Y %H:%M') %>
-</p>
-
 <table>
   <thead>
     <th>Ticket number</th>
+    <th>Ticket bought:</th>
+    <th>Bought date:</th>
     <th >Route</th>
     <th>Train number</th>
     <th>Start station</th>
@@ -17,6 +15,8 @@
   <tbody>
     <tr>
       <td><%= @ticket.number %></td>
+      <td><%= @ticket.user.email %></td>
+      <td><%= @ticket.created_at.strftime('%d.%m.%Y %H:%M') %></td>
       <td><%= @ticket.train.route.name %></td>
       <td><%= @ticket.train.number %></td>
       <td><%= @ticket.start_station.title %>
