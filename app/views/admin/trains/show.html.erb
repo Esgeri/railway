@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Train number:</strong>
+  <%= @train.number %>
+</p>
+
+<% if @train.sort_carriages.empty? %>
+  <p>Does not have carriage</p>
+<% else %>
+  <p>
+     <strong>Train carriages list:</strong>
+     <ul>
+       <% @train.sort_carriages.each do |carriage| %>
+        <li>
+          <%= link_to "Carriage number: #{carriage.number}", admin_carriage_path(carriage) %>
+          <%= link_to 'Show', admin_carriage_path(carriage) %>
+          <%= link_to 'Edit', edit_admin_carriage_path(carriage) %> |
+          <%= link_to 'Delete', admin_carriage_path(carriage), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </li>
+       <% end %>
+     </ul>
+  </p>
+<% end %>
+
+<p>
+  <%= link_to "Add carriage", new_admin_train_carriage_path(@train) %>
+</p>
+
+<p>
+  <strong>On railway station:</strong>
+  <% if @train.current_station.present? %>
+    <%= link_to @train.current_station.title, [ :admin, @train.current_station ] %>
+  <% else %>
+    No railway stations are marked!
+  <% end %>
+</p>
+
+<p>
+  <strong>On route:</strong>
+  <% if @train.route.present? %>
+    <%= link_to @train.route.name, [ :admin, @train.route ] %>
+  <% else %>
+    Route not assigned
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_admin_train_path(@train) %> |
+<%= link_to 'Back', admin_trains_path %>

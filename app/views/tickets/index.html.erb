@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ticket order information</h1>
+
+<table>
+  <thead>
+    <th>Ticket number</th>
+    <th>Ticket bought:</th>
+    <th>Bought date:</th>
+    <th>Train number</th>
+    <th>Start station</th>
+    <th>End station</th>
+  </thead>
+  <tbody>
+    <%= render @tickets %>
+  </tbody>
+</table>
+
+<%= link_to 'Back', search_path %>

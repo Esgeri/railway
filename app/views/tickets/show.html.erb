@@ -1,31 +1,30 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Ticket order information</h1>
 
-<p>
-  Bought date: <%= @ticket.created_at.strftime('%d.%m.%Y %H:%M') %>
-</p>
-
+</div>
+<p>Bought date: <%= @ticket.created_at.strftime '%d.%m.%Y %H:%M' %></p>
+<p>Customer email: <%= @ticket.user.email %> </p>
 <table>
-  <thead>
-    <th>Ticket number</th>
-    <th >Route</th>
-    <th>Train number</th>
-    <th>Start station</th>
-    <th>End station</th>
-  </thead>
   <tbody>
-    <tr>
-      <td><%= @ticket.number %></td>
-      <td><%= @ticket.train.route.name %></td>
-      <td><%= @ticket.train.number %></td>
-      <td><%= @ticket.start_station.title %>
-        (<%= @ticket.train.route.railway_stations.first.change_arrival_time_in(@ticket.train.route) %>)
-      </td>
-      <td><%= @ticket.end_station.title %>
-        (<%= @ticket.train.route.railway_stations.first.change_departure_time_in(@ticket.train.route) %>)
-      </td>
-    </tr>
+  <tr>
+    <th>Ticket number</th>
+    <td><%= @ticket.number %></td>
+  </tr>
+  <tr>
+    <th>Train number</th>
+    <td><%= @ticket.train.number %></td>
+  </tr>
+  <tr>
+    <th>Start station</th>
+    <td>
+      <%= @ticket.start_station.title %>
+    </td>
+  </tr>
+  <tr>
+    <th>End station</th>
+    <td>
+      <%= @ticket.end_station.title %>
+    </td>
+  </tr>
   </tbody>
 </table>
 

@@ -1,0 +1,60 @@
+<h1>Ticket information</h1>
+
+<table>
+  <tbody>
+    <tr>
+      <th>Ticket number</th>
+      <td><%= @ticket.number %></td>
+    </tr>
+    <tr>
+      <th>Train number</th>
+      <td><%= link_to @ticket.train.number, admin_train_path(@ticket.train) %></td>
+    </tr>
+    <tr>
+      <th>Customer name</th>
+      <td><%= @ticket.user.user_initials %></td>
+    </tr>
+    <tr>
+      <th>Customer e-mail</th>
+      <td><%= @ticket.user.email %></td>
+    </tr>
+    <tr>
+      <th>Bought date</th>
+      <td><%= @ticket.created_at.strftime '%d.%m.%Y %H:%M' %></td>
+    </tr>
+    <tr>
+     <th>Route</th>
+     <td><%= link_to @ticket.train.route.name, admin_route_path(@ticket.train.route) %></td>
+   </tr>
+   <tr>
+    <th>Start station</th>
+    <td>
+      <%= @ticket.start_station.title %>
+      ( <%= @ticket.start_station.change_arrival_time_in(@ticket.train.route) %>)
+    </td>
+  </tr>
+  <tr>
+    <th>End station</th>
+    <td>
+      <%= @ticket.end_station.title %>
+      ( <%= @ticket.end_station.change_departure_time_in(@ticket.train.route) %>)
+    </td>
+  </tr>
+</tbody>
+</table>
+
+<h2>Passenger information</h2>
+<table>
+  <tbody>
+    <tr>
+      <th>Passenger name</th>
+      <td><%= @ticket.passenger_name %></td>
+    </tr>
+    <tr>
+      <th>Passport number</th>
+      <td><%= @ticket.passport_number %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to 'Back', admin_tickets_path %>
