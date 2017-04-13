@@ -1,47 +1,53 @@
-<p>
+<p class="grid-bottom text-large">
   <strong><%= t('.number') %></strong>
   <%= @train.number %>
 </p>
 
-<% if @train.sort_carriages.empty? %>
-  <p><%= t('.no_carriage') %></p>
-<% else %>
-  <p>
-     <strong><%= t('.carriage_list') %></strong>
-     <ul>
-       <% @train.sort_carriages.each do |carriage| %>
-        <li>
-          <%= link_to "Carriage number: #{carriage.number}", admin_carriage_path(carriage) %>
-          <%= link_to t('common.show'), admin_carriage_path(carriage) %>
-          <%= link_to t('common.edit'), edit_admin_carriage_path(carriage) %> |
-          <%= link_to t('common.destroy'), admin_carriage_path(carriage), method: :delete, data: { confirm: t('common.confirm') } %>
-        </li>
-       <% end %>
-     </ul>
-  </p>
-<% end %>
+<div class="row">
+  <div class="col-md-4 col-lg-5">
+    <% if @train.sort_carriages.empty? %>
+      <p><%= t('.no_carriage') %></p>
+    <% else %>
+      <p>
+         <strong><%= t('.carriage_list') %></strong>
+         <ol class="table table-bordered">
+           <% @train.sort_carriages.each do |carriage| %>
+            <li>
+              <%= link_to "Carriage number: #{carriage.number}", admin_carriage_path(carriage) %>
+              <%= link_to t('common.show'), admin_carriage_path(carriage) %> |
+              <%= link_to t('common.edit'), edit_admin_carriage_path(carriage) %> |
+              <%= link_to t('common.destroy'), admin_carriage_path(carriage), method: :delete, data: { confirm: t('common.confirm') } %>
+            </li>
+           <% end %>
+         </ol>
+      </p>
+    <% end %>
 
-<p>
-  <%= link_to t('common.add'), new_admin_train_carriage_path(@train) %>
-</p>
+    <p>
+      <%= link_to t('common.add'), new_admin_train_carriage_path(@train), class: 'btn btn-primary' %>
+    </p>
+  </div>
 
-<p>
-  <strong><%= t('.on_station') %></strong>
-  <% if @train.current_station.present? %>
-    <%= link_to @train.current_station.title, [ :admin, @train.current_station ] %>
-  <% else %>
-    <%= t('.no_station') %>
-  <% end %>
-</p>
+  <div class="col-md-4 col-lg-3">
+    <p><strong><%= t('.on_station') %></strong></p>
+      <% if @train.current_station.present? %>
+        <%= link_to @train.current_station.title, [ :admin, @train.current_station ] %>
+      <% else %>
+        <%= t('.no_station') %>
+      <% end %>
+  </div>
 
-<p>
-  <strong><%= t('.on_route') %></strong>
-  <% if @train.route.present? %>
-    <%= link_to @train.route.name, [ :admin, @train.route ] %>
-  <% else %>
-    <%= t('.no_route') %>
-  <% end %>
-</p>
+  <div class="col-md-4 col-lg-3">
+    <p><strong><%= t('.on_route') %></strong></p>
+      <% if @train.route.present? %>
+        <%= link_to @train.route.name, [ :admin, @train.route ] %>
+      <% else %>
+        <%= t('.no_route') %>
+      <% end %>
+  </div>
+</div>
 
-<%= link_to t('common.edit'), edit_admin_train_path(@train) %> |
-<%= link_to t('common.back'), admin_trains_path %>
+<br />
+
+<%= link_to t('common.edit'), edit_admin_train_path(@train), class: 'btn btn-primary' %>
+<%= link_to t('common.back'), admin_trains_path, class: 'btn btn-primary' %>

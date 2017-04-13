@@ -24,6 +24,10 @@ footer {
   margin-bottom: 50px;
 }
 
+.grid-bottom-small {
+  margin-bottom: 20px;
+}
+
 .text-large {
   font-size: 35px;
 }
