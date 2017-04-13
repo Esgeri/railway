@@ -142,6 +142,7 @@ ru:
         no_station: 'Не указана станция'
         on_route: 'Следует по маршруту'
         no_route: 'Маршрут не указан'
+        add_carriage: 'Добавить вагон'
       index:
         trains_list: 'Список поездов'
         train_number: 'Номера поездов'
