@@ -15,3 +15,11 @@ footer {
     margin-bottom: 20px;
     color: #f4511e;
 }
+
+.text-center {
+  text-align: center;
+}
+
+.grid-bottom {
+  margin-bottom: 50px;
+}
