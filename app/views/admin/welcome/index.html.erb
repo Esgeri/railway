@@ -1,11 +1,11 @@
-<h1>Welcome, Railway project admin panel</h1>
+<h1><%= t('.title') %></h1>
 
-<p><%= link_to 'Seach', search_path %></p>
+<p><%= link_to t('.search'), search_path %></p>
 
-<p><%= link_to 'Railway stations list', admin_railway_stations_path  %></p>
+<p><%= link_to t('.railway_stations'), admin_railway_stations_path  %></p>
 
-<p><%= link_to 'Trains list', admin_trains_path %></p>
+<p><%= link_to t('.trains'), admin_trains_path %></p>
 
-<p><%= link_to 'Routes list', admin_routes_path %></p>
+<p><%= link_to t('.routes'), admin_routes_path %></p>
 
-<p><%= link_to 'Tickets list', admin_tickets_path %></p>
+<p><%= link_to t('.tickets'), admin_tickets_path %></p>

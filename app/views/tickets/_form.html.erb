@@ -2,12 +2,12 @@
   <%= render 'common/errors', resource: @ticket %>
 
   <div class="field">
-    <%= f.label :passenger_name, 'Passenger name' %>
+    <%= f.label :passenger_name %>
     <%= f.text_field :passenger_name %>
   </div>
 
   <div class="field">
-    <%= f.label :passport_number, 'Passport number' %>
+    <%= f.label :passport_number %>
     <%= f.text_field :passport_number %>
   </div>
 
@@ -18,6 +18,6 @@
   <%= f.hidden_field :end_station_id %>
 
   <div class="actions">
-    <%= f.submit 'Buy ticket' %>
+    <%= f.submit t('.submit') %>
   </div>
 <% end %>

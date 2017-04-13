@@ -7,7 +7,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :carriage_type %><br>
+    <%= f.label t('.carriage_type') %><br>
     <%= f.select :carriage_type, ["Economy", "Coupe", "OnlySeatCarriage", "CBCarriage"] %>
   </div>
 
@@ -37,6 +37,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "#{ @carriage.new_record? ? 'Create' : 'Update' }" %>
+    <%= f.submit t('.submit', action: @carriage.new_record? ? 'Добавить' : 'Изменить') %>
   </div>
 <% end %>

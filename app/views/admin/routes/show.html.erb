@@ -1,25 +1,25 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Route name:</strong>
+  <strong><%= t('.name') %></strong>
   <%= @route.name %>
 </p>
 
 <p>
-  <strong>Railway stations on route:</strong>
+  <strong><%= t('.station_on_route') %></strong>
 </p>
 
 <p>
   <% if @route.railway_stations.empty? %>
-    List of railway stations is empty
+    <%= t('.empty_list') %>
   <% else %>
     <table>
       <thead>
         <tr>
-          <td width="200px">Station title:</td>
-          <td>Position</td>
-          <td>Arrival time</td>
-          <td>Departure time</td>
+          <td width="200px"><%= t('.station_title') %></td>
+          <td><%= t('.position') %></td>
+          <td><%= t('.arrival_time') %></td>
+          <td><%= t('.departure_time') %></td>
         </tr>
       </thead>
 
@@ -31,7 +31,7 @@
               <%= form_tag update_position_admin_railway_station_path(station), method: :patch do %>
                 <%= number_field_tag :position, station.position_in(@route) %>
                 <%= hidden_field_tag :route_id, @route.id %>
-                <%= submit_tag 'Update' %>
+                <%= submit_tag t('.submit_tag') %>
               <% end %>
             </td>
             <td>
@@ -39,7 +39,7 @@
                 <%= time_field_tag :arrival_time, station.change_arrival_time_in(@route) %>
                 <%= time_field_tag :departure_time, station.change_departure_time_in(@route) %>
                 <%= hidden_field_tag :route_id, @route.id %>
-                <%= submit_tag 'Update' %>
+                <%= submit_tag t('.submit_tag') %>
               <% end %>
             </td>
           </tr>
@@ -50,11 +50,11 @@
 </p>
 
 <p>
-  <strong>Trains on route:</strong>
+  <strong><%= t('.trains_on_route') %></strong>
 </p>
 <p>
   <% if @route.trains.empty? %>
-    There are no trains on route
+    <%= t('.no_trains') %>
   <% else %>
     <ul>
       <% @route.trains.each do |train| %>
@@ -64,5 +64,5 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_admin_route_path(@route) %> |
-<%= link_to 'Back', admin_routes_path %>
+<%= link_to t('common.edit'), edit_admin_route_path(@route) %> |
+<%= link_to t('common.back'), admin_routes_path %>

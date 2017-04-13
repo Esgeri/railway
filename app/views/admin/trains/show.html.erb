@@ -1,22 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Train number:</strong>
+  <strong><%= t('.number') %></strong>
   <%= @train.number %>
 </p>
 
 <% if @train.sort_carriages.empty? %>
-  <p>Does not have carriage</p>
+  <p><%= t('.no_carriage') %></p>
 <% else %>
   <p>
-     <strong>Train carriages list:</strong>
+     <strong><%= t('.carriage_list') %></strong>
      <ul>
        <% @train.sort_carriages.each do |carriage| %>
         <li>
           <%= link_to "Carriage number: #{carriage.number}", admin_carriage_path(carriage) %>
-          <%= link_to 'Show', admin_carriage_path(carriage) %>
-          <%= link_to 'Edit', edit_admin_carriage_path(carriage) %> |
-          <%= link_to 'Delete', admin_carriage_path(carriage), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to t('common.show'), admin_carriage_path(carriage) %>
+          <%= link_to t('common.edit'), edit_admin_carriage_path(carriage) %> |
+          <%= link_to t('common.destroy'), admin_carriage_path(carriage), method: :delete, data: { confirm: t('common.confirm') } %>
         </li>
        <% end %>
      </ul>
@@ -24,26 +24,26 @@
 <% end %>
 
 <p>
-  <%= link_to "Add carriage", new_admin_train_carriage_path(@train) %>
+  <%= link_to t('common.add'), new_admin_train_carriage_path(@train) %>
 </p>
 
 <p>
-  <strong>On railway station:</strong>
+  <strong><%= t('.on_station') %></strong>
   <% if @train.current_station.present? %>
     <%= link_to @train.current_station.title, [ :admin, @train.current_station ] %>
   <% else %>
-    No railway stations are marked!
+    <%= t('.no_station') %>
   <% end %>
 </p>
 
 <p>
-  <strong>On route:</strong>
+  <strong><%= t('.on_route') %></strong>
   <% if @train.route.present? %>
     <%= link_to @train.route.name, [ :admin, @train.route ] %>
   <% else %>
-    Route not assigned
+    <%= t('.no_route') %>
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_admin_train_path(@train) %> |
-<%= link_to 'Back', admin_trains_path %>
+<%= link_to t('common.edit'), edit_admin_train_path(@train) %> |
+<%= link_to t('common.back'), admin_trains_path %>

@@ -22,7 +22,7 @@ class Admin::TicketsController < Admin::BaseController
     @ticket = Ticket.new(ticket_params)
 
     if @ticket.save
-      redirect_to [ :admin, @ticket ], notice: 'Thanks for bought!'
+      redirect_to [ :admin, @ticket ], notice: t('.notice')
     else
       render :new
     end
@@ -30,7 +30,7 @@ class Admin::TicketsController < Admin::BaseController
 
   def update
     if @ticket.update(ticket_params)
-      redirect_to admin_ticket_path(@ticket), notice: 'Ticket was successfully updated!'
+      redirect_to admin_ticket_path(@ticket), notice: t('.notice')
     else
       render 'edit'
     end
@@ -38,7 +38,7 @@ class Admin::TicketsController < Admin::BaseController
 
   def destroy
     @ticket.destroy
-    redirect_to admin_tickets_path, notice: 'Ticket was successfully deleted!'
+    redirect_to admin_tickets_path, notice: t('.notice')
   end
 
   private

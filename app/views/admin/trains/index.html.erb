@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Trains list:</h1>
+<h1><%= t('.trains_list') %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Train number:</th>
+      <th><%= t('.train_number') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,4 +17,4 @@
 
 <br>
 
-<%= link_to 'New Train', new_admin_train_path %>
+<%= link_to t('common.add'), new_admin_train_path %>

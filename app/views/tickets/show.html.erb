@@ -1,26 +1,26 @@
-<h1>Ticket order information</h1>
+<h1><%= t('.ticket_info') %></h1>
 
 </div>
-<p>Bought date: <%= @ticket.created_at.strftime '%d.%m.%Y %H:%M' %></p>
-<p>Customer email: <%= @ticket.user.email %> </p>
+<p><%= t('.bought_date') %> <%= @ticket.created_at.strftime '%d.%m.%Y %H:%M' %></p>
+<p><%= t('.customer_email') %> <%= @ticket.user.email %> </p>
 <table>
   <tbody>
   <tr>
-    <th>Ticket number</th>
+    <th><%= t('.ticket_number') %></th>
     <td><%= @ticket.number %></td>
   </tr>
   <tr>
-    <th>Train number</th>
+    <th><%= t('.train_number') %></th>
     <td><%= @ticket.train.number %></td>
   </tr>
   <tr>
-    <th>Start station</th>
+    <th><%= t('.start_station') %></th>
     <td>
       <%= @ticket.start_station.title %>
     </td>
   </tr>
   <tr>
-    <th>End station</th>
+    <th><%= t('.end_station') %></th>
     <td>
       <%= @ticket.end_station.title %>
     </td>
@@ -28,4 +28,4 @@
   </tbody>
 </table>
 
-<%= link_to 'Back', search_path %>
+<%= link_to t('common.back'), search_path %>

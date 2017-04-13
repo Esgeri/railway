@@ -1,40 +1,40 @@
-<h1>Ticket information</h1>
+<h1><%= t('.ticket_info') %></h1>
 
 <table>
   <tbody>
     <tr>
-      <th>Ticket number</th>
+      <th><%= t('.ticket_number') %></th>
       <td><%= @ticket.number %></td>
     </tr>
     <tr>
-      <th>Train number</th>
+      <th><%= t('.train_number') %></th>
       <td><%= link_to @ticket.train.number, admin_train_path(@ticket.train) %></td>
     </tr>
     <tr>
-      <th>Customer name</th>
+      <th><%= t('.customer_name') %></th>
       <td><%= @ticket.user.user_initials %></td>
     </tr>
     <tr>
-      <th>Customer e-mail</th>
+      <th><%= t('.customer_email') %></th>
       <td><%= @ticket.user.email %></td>
     </tr>
     <tr>
-      <th>Bought date</th>
+      <th><%= t('.bought_date') %></th>
       <td><%= @ticket.created_at.strftime '%d.%m.%Y %H:%M' %></td>
     </tr>
     <tr>
-     <th>Route</th>
+     <th><%= t('.ticket_route') %></th>
      <td><%= link_to @ticket.train.route.name, admin_route_path(@ticket.train.route) %></td>
    </tr>
    <tr>
-    <th>Start station</th>
+    <th><%= t('.start_station') %></th>
     <td>
       <%= @ticket.start_station.title %>
       ( <%= @ticket.start_station.change_arrival_time_in(@ticket.train.route) %>)
     </td>
   </tr>
   <tr>
-    <th>End station</th>
+    <th><%= t('.start_station') %></th>
     <td>
       <%= @ticket.end_station.title %>
       ( <%= @ticket.end_station.change_departure_time_in(@ticket.train.route) %>)
@@ -43,18 +43,19 @@
 </tbody>
 </table>
 
-<h2>Passenger information</h2>
+<h2><%= t('.passenger_info') %></h2>
 <table>
   <tbody>
     <tr>
-      <th>Passenger name</th>
+      <th><%= t('.passenger_name') %></th>
       <td><%= @ticket.passenger_name %></td>
     </tr>
     <tr>
-      <th>Passport number</th>
+      <th><%= t('.passport_number') %></th>
       <td><%= @ticket.passport_number %></td>
     </tr>
   </tbody>
 </table>
 
-<%= link_to 'Back', admin_tickets_path %>
+<%= link_to t('common.edit'), edit_admin_ticket_path(@ticket) %> |
+<%= link_to t('common.back'), admin_tickets_path %>

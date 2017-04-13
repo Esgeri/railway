@@ -29,7 +29,7 @@ ru:
         bottom_seats: 'Нижние места'
         side_top_seats: 'Верхние боковые места'
         side_bottom_seats: 'Нижние боковые места'
-        only_seats: 'Сидячие места'
+        only_seat: 'Сидячие места'
       ticket:
         passenger_name: 'Имя пассажира'
         passport_number: 'Номер пасспорта'

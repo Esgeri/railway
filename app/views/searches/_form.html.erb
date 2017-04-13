@@ -1,16 +1,16 @@
 <%= form_for :search do |f| %>
 
   <div class="field">
-    <%= f.label :start_station, 'Start station' %>
+    <%= f.label t('.start_station') %>
     <%= f.collection_select :start_station_id, RailwayStation.ordered, :id, :title %>
   </div>
 
   <div class="field">
-    <%= f.label :end_station, 'End station' %>
+    <%= f.label t('.end_station') %>
     <%= f.collection_select :end_station_id, RailwayStation.ordered, :id, :title %>
   </div>
 
   <div class="actions">
-    <%= submit_tag 'Search' %>
+    <%= submit_tag t('.submit_tag') %>
   </div>
 <% end %>

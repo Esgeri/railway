@@ -3,12 +3,8 @@
   <td><%= ticket.passenger_name %></td>
   <td><%= ticket.created_at.strftime('%d.%m.%Y %H:%M') %></td>
   <td><%= ticket.train.number %></td>
-  <td>
-    <%= ticket.start_station.title %>
-  </td>
-  <td>
-    <%= ticket.end_station.title %>
-  </td>
-  <td><%= link_to 'Show', ticket_path(ticket) %></td>
-  <td><%= link_to 'Destroy', ticket_path(ticket), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <td><%= ticket.start_station.title %></td>
+  <td><%= ticket.end_station.title %></td>
+  <td><%= link_to t('common.show'), ticket_path(ticket) %></td>
+  <td><%= link_to t('common.destroy'), ticket_path(ticket), method: :delete, data: { confirm: t('common.confirm') } %></td>
 </tr>

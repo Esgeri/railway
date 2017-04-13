@@ -1,12 +1,12 @@
 <p>
-  <strong>Station title:</strong>
+  <strong><%= t('.title') %></strong>
   <%= @railway_station.title %>
 </p>
 
 <% if @railway_station.routes.empty? %>
-  <p>The station is not included in any routes</p>
+  <p><%= t('.off_route') %></p>
 <% else %>
-  <p>The station enters the following routes:</p>
+  <p><%= t('.on_route') %></p>
   <ul>
     <% @railway_station.routes.each do |route| %>
       <li><%= link_to route.name, [ :admin, route ] %></li>
@@ -14,7 +14,7 @@
   </ul>
 <% end %>
 
-<p><strong>Trains on railway station:</strong></p>
+<p><strong><%= t('.trains_on_current_station') %></strong></p>
 
 <% if @railway_station.trains.present? %>
   <ul>
@@ -23,10 +23,8 @@
     <% end %>
   </ul>
 <% else %>
-  No trains on current station
+  <%= t('.no_trains_on_current_station') %>
 <% end %>
 
-
-
-<%= link_to 'Edit', edit_admin_railway_station_path(@railway_station) %> |
-<%= link_to 'Back', admin_railway_stations_path %>
+<%= link_to t('common.edit'), edit_admin_railway_station_path(@railway_station) %> |
+<%= link_to t('common.back'), admin_railway_stations_path %>

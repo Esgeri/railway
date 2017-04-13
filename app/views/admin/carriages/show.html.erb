@@ -1,38 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Carriage number: <%= @carriage.number %></h1>
+<h1><%= t('.number') %> <%= @carriage.number %></h1>
 
 <% if @carriage.train.nil? %>
-  <p>Does not have a train</p>
+  <p><%= t('.no_train') %></p>
 <% else %>
   <p>
-    Train number: <%= link_to @carriage.train.number, [ :admin, @carriage.train ] %>
+    <%= t('.train_number') %> <%= link_to @carriage.train.number, [ :admin, @carriage.train ] %>
   </p>
 <% end %>
 
 <p>
-  Carriage type: <%= @carriage.carriage_type %>
+  <%= t('.carriage_type') %> <%= @carriage.carriage_type %>
 </p>
 
 <p>
-  Top seats: <%= @carriage.top_seats %>
+  <%= t('.top_seats') %> <%= @carriage.top_seats %>
 </p>
 
 <p>
-  Bottom seats: <%= @carriage.bottom_seats %>
+  <%= t('.bottom_seats') %> <%= @carriage.bottom_seats %>
 </p>
 
 <p>
-  Side top seats: <%= @carriage.side_top_seats %>
+  <%= t('.side_top_seats') %> <%= @carriage.side_top_seats %>
 </p>
 
 <p>
-  Side bottom seats: <%= @carriage.side_bottom_seats %>
+  <%= t('.side_bottom_seats') %> <%= @carriage.side_bottom_seats %>
 </p>
 
 <p>
-  Only seats: <%= @carriage.only_seat %>
+  <%= t('.only_seats') %> <%= @carriage.only_seat %>
 </p>
 
-<%= link_to 'Edit', edit_admin_carriage_path(@carriage) %> |
-<%= link_to 'Back', [ :admin, @carriage.train ] %>
+<%= link_to t('common.edit'), edit_admin_carriage_path(@carriage) %> |
+<%= link_to t('common.back'), [ :admin, @carriage.train ] %>
