@@ -1,4 +1,4 @@
-<h1><%= t('.title') %></h1>
+<h1 class="text-center text-large grid-bottom"><%= t('.title') %></h1>
 
 <h2><%= t('.ticket_info') %></h2>
 
@@ -21,6 +21,8 @@
 </table>
 
 <h2><%= t('.passenger_info') %></h2>
-<div class="col-md-4 col-lg-4">
-  <%= render 'form' %>
+<div class="col-md-4 col-lg-6">
+  <div class="row grid-bottom">
+    <%= render 'form' %>
+  </div>
 </div>
