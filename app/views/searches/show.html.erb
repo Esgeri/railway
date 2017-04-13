@@ -1,6 +1,6 @@
 <h1 class='text-center grid-bottom'><%= t('.title') %></h1>
 
-<%= render 'form', search: @search %>
+<%= render 'form' %>
 
 <div class="row">
   <div class="container">
@@ -27,21 +27,11 @@
                 <td><%= train.route.railway_stations.first.change_arrival_time_in(train.route) %></td>
                 <td><%= train.route.railway_stations.first.change_departure_time_in(train.route) %></td>
                 <td>
-                  <% if current_user %>
-                    <% current_user.admin? %>
-                    <%= form_tag new_admin_ticket_path, method: :get do %>
-                      <%= hidden_field_tag :train_id, train.id %>
-                      <%= hidden_field_tag :start_station_id, @search.start_station_id %>
-                      <%= hidden_field_tag :end_station_id, @search.end_station_id %>
-                      <%= submit_tag t('.submit_tag'), class: 'btn btn-danger' %>
-                    <% end %>
-                  <% else %>
-                    <%= form_tag new_ticket_path, method: :get do %>
-                      <%= hidden_field_tag :train_id, train.id %>
-                      <%= hidden_field_tag :start_station_id, @search.start_station_id %>
-                      <%= hidden_field_tag :end_station_id, @search.end_station_id %>
-                      <%= submit_tag t('.submit_tag'), class: 'btn btn-danger' %>
-                    <% end %>
+                  <%= form_tag current_user.admin? ? new_admin_ticket_path : new_ticket_path, method: :get do %>
+                    <%= hidden_field_tag :train_id, train.id %>
+                    <%= hidden_field_tag :start_station_id, @search.start_station_id %>
+                    <%= hidden_field_tag :end_station_id, @search.end_station_id %>
+                    <%= submit_tag t('.submit_tag'), class: 'btn btn-danger' %>
                   <% end %>
                 </td>
               </tr>
