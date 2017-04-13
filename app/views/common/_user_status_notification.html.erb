@@ -1,12 +1,9 @@
 <% if user_signed_in? %>
-  <%= t('.hello') %> <%= ", #{current_user.user_initials}!" %>
-  <p><%= link_to t('.mine_tickets'), tickets_path if !current_user.admin? %></p>
-
-  <p><%= t('.account') %> <%= current_user.email %></p>
-
-  <p><%= link_to t('.admin_panel'), admin_welcome_index_path  if current_user.admin? %></p>
-
-  <%= link_to t('.sign_out'), destroy_user_session_path, method: :delete %>
+  <li><span class="navbar-text"><%= t('.hello') %>, <%= "#{current_user.user_initials}!" %></span></li>
+  <li><span class="navbar-text"><%= t('.account') %> <%= current_user.email %></span></li>
+  <li><%= link_to t('.mine_tickets'), tickets_path if !current_user.admin? %></li>
+  <li><%= link_to t('.admin_panel'), admin_welcome_index_path  if current_user.admin? %></li>
+  <li><%= link_to t('.sign_out'), destroy_user_session_path, method: :delete %></li>
 <% else %>
-  <%= link_to t('.log_in'), new_user_session_path %>
+  <li><%= link_to t('.log_in'), new_user_session_path %></li>
 <% end %>
