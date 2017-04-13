@@ -1,29 +1,26 @@
-<h1>Ticket order</h1>
+<h1><%= t('.title') %></h1>
 
-<h2>Information</h2>
+<h2><%= t('.ticket_info') %></h2>
 
-<table>
+<table class="table table-striped">
+  <thead>
+      <th><%= t('.train_number') %></th>
+      <th><%= t('.route') %></th>
+      <th><%= t('.start_station') %></th>
+      <th><%= t('.end_station') %></th>
+  </thead>
+
   <tbody>
     <tr>
-      <th>Train number</th>
       <td><%= @ticket.train.number %></td>
-    </tr>
-    <tr>
-      <th>Route</th>
       <td><%= @ticket.train.route.name %></td>
-    </tr>
-    <tr>
-      <th>Start station</th>
       <td><%= @ticket.start_station.title %></td>
-    </tr>
-    <tr>
-      <th>End station</th>
       <td><%= @ticket.end_station.title %></td>
     </tr>
   </tbody>
 </table>
 
-<h2>Passenger information</h2>
-<div class="field">
+<h2><%= t('.passenger_info') %></h2>
+<div class="col-md-4 col-lg-4">
   <%= render 'form' %>
 </div>

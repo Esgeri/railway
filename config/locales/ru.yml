@@ -39,6 +39,12 @@ ru:
         title: 'Редактировать билет пассажира'
       new:
         title: 'Создать билет для пассажира'
+        ticket_info: 'Информация о билете'
+        train_number: 'Номер поезда'
+        route: 'Маршрут'
+        start_station: 'Начальная станция'
+        end_station: 'Конечная станция'
+        passenger_info: 'Информация о пассажире'
       show:
         ticket_info: 'Информация о билете'
         bought_date: 'Дата покупки'
