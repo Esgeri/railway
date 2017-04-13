@@ -1,66 +1,77 @@
-<p>
+<p class="grid-bottom text-large">
   <strong><%= t('.name') %></strong>
   <%= @route.name %>
 </p>
 
-<p>
-  <strong><%= t('.station_on_route') %></strong>
-</p>
+<div class="row">
+  <div class="col-md-4 col-lg-12">
+    <p>
+      <strong class="text-large"><%= t('.station_on_route') %></strong>
+    </p>
 
-<p>
-  <% if @route.railway_stations.empty? %>
-    <%= t('.empty_list') %>
-  <% else %>
-    <table>
-      <thead>
-        <tr>
-          <td width="200px"><%= t('.station_title') %></td>
-          <td><%= t('.position') %></td>
-          <td><%= t('.arrival_time') %></td>
-          <td><%= t('.departure_time') %></td>
-        </tr>
-      </thead>
+    <p>
+      <% if @route.railway_stations.empty? %>
+        <%= t('.empty_list') %>
+      <% else %>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <td width="200px"><%= t('.station_title') %></td>
+              <td><%= t('.position') %></td>
+              <td>
+                <%= t('.arrival_time') %>
+                <%= t('.departure_time') %>
+              </td>
+            </tr>
+          </thead>
 
-      <tbody>
-        <% @route.railway_stations.ordered.each do |station| %>
-          <tr>
-            <td><%= link_to station.title, [ :admin, station ] %></td>
-            <td>
-              <%= form_tag update_position_admin_railway_station_path(station), method: :patch do %>
-                <%= number_field_tag :position, station.position_in(@route) %>
-                <%= hidden_field_tag :route_id, @route.id %>
-                <%= submit_tag t('.submit_tag') %>
-              <% end %>
-            </td>
-            <td>
-              <%= form_tag update_time_admin_railway_station_path(station), method: :patch do %>
-                <%= time_field_tag :arrival_time, station.change_arrival_time_in(@route) %>
-                <%= time_field_tag :departure_time, station.change_departure_time_in(@route) %>
-                <%= hidden_field_tag :route_id, @route.id %>
-                <%= submit_tag t('.submit_tag') %>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% end %>
-</p>
-
-<p>
-  <strong><%= t('.trains_on_route') %></strong>
-</p>
-<p>
-  <% if @route.trains.empty? %>
-    <%= t('.no_trains') %>
-  <% else %>
-    <ul>
-      <% @route.trains.each do |train| %>
-        <li><%= link_to train.number, [ :admin, train ] %></li>
+          <tbody>
+            <% @route.railway_stations.ordered.each do |station| %>
+              <tr>
+                <td><%= link_to station.title, [ :admin, station ] %></td>
+                <td>
+                  <%= form_tag update_position_admin_railway_station_path(station), method: :patch do %>
+                    <%= number_field_tag :position, station.position_in(@route) %>
+                    <%= hidden_field_tag :route_id, @route.id %>
+                    <%= submit_tag t('.submit_tag'), class: 'btn btn-primary' %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= form_tag update_time_admin_railway_station_path(station), method: :patch do %>
+                    <%= time_field_tag :arrival_time, station.change_arrival_time_in(@route) %>
+                    <%= time_field_tag :departure_time, station.change_departure_time_in(@route) %>
+                    <%= hidden_field_tag :route_id, @route.id %>
+                    <%= submit_tag t('.submit_tag'), class: 'btn btn-primary' %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       <% end %>
-    </ul>
-  <% end %>
-</p>
+    </p>
+  </div>
+</div>
 
-<%= link_to t('common.edit'), edit_admin_route_path(@route) %> |
-<%= link_to t('common.back'), admin_routes_path %>
+<div class="row">
+  <div class="col-md-4 col-lg-12">
+    <p class="grid-bottom-small text-large">
+      <strong><%= t('.trains_on_route') %></strong>
+    </p>
+    <p>
+      <% if @route.trains.empty? %>
+        <%= t('.no_trains') %>
+      <% else %>
+        <ul>
+          <% @route.trains.each do |train| %>
+            <li><%= link_to train.number, [ :admin, train ] %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </p>
+  </div>
+</div>
+
+
+<%= link_to t('common.edit'), edit_admin_route_path(@route), class: 'btn btn-primary' %>
+<%= link_to t('common.back'), admin_routes_path, class: 'btn btn-primary' %>
