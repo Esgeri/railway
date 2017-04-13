@@ -1,30 +1,41 @@
-<p>
-  <strong><%= t('.title') %></strong>
+<p class="grid-bottom text-large">
+  <strong><%= t('.title') %> -:- </strong>
   <%= @railway_station.title %>
 </p>
 
-<% if @railway_station.routes.empty? %>
-  <p><%= t('.off_route') %></p>
-<% else %>
-  <p><%= t('.on_route') %></p>
-  <ul>
-    <% @railway_station.routes.each do |route| %>
-      <li><%= link_to route.name, [ :admin, route ] %></li>
+<div class="row">
+  <div class="col-md-4 col-lg-4">
+    <% if @railway_station.routes.empty? %>
+      <p><strong><%= t('.off_route') %></strong></p>
+    <% else %>
+      <p><strong><%= t('.on_route') %></strong></p>
+      <ol>
+        <% @railway_station.routes.each do |route| %>
+          <li><%= link_to route.name, [ :admin, route ] %></li>
+        <% end %>
+      </ol>
     <% end %>
-  </ul>
-<% end %>
+  </div>
 
-<p><strong><%= t('.trains_on_current_station') %></strong></p>
+  <div class="col-md-4 col-lg-4 grid-bottom">
+    <p><strong><%= t('.trains_on_current_station') %></strong></p>
 
-<% if @railway_station.trains.present? %>
-  <ul>
-    <% @railway_station.trains.each do |train| %>
-      <li><%= link_to train.number, [ :admin, train ] %></li>
+    <% if @railway_station.trains.present? %>
+      <ol>
+        <% @railway_station.trains.each do |train| %>
+          <li><%= link_to train.number, [ :admin, train ] %></li>
+        <% end %>
+      </ol>
+    <% else %>
+      <%= t('.no_trains_on_current_station') %>
     <% end %>
-  </ul>
-<% else %>
-  <%= t('.no_trains_on_current_station') %>
-<% end %>
+  </div>
+</div>
 
-<%= link_to t('common.edit'), edit_admin_railway_station_path(@railway_station) %> |
-<%= link_to t('common.back'), admin_railway_stations_path %>
+<br />
+
+<div class="col-md-4 col-lg-8">
+  <%= link_to t('common.edit'), edit_admin_railway_station_path(@railway_station), class: 'btn btn-primary' %>
+  <%= link_to t('common.back'), admin_railway_stations_path, class: 'btn btn-primary' %>
+</div>
+
