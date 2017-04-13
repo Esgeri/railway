@@ -117,6 +117,8 @@ ru:
         side_bottom_seats: 'Нижние боковые места'
         only_seats: 'Сидячие места'
       index:
+        number: 'Номер вагона'
+        type: 'Тип вагона'
 
 
     trains:

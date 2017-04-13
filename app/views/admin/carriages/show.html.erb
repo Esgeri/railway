@@ -1,4 +1,4 @@
-<h1><%= t('.number') %> <%= @carriage.number %></h1>
+<h1 class="text-center grid-bottom"><%= t('.number') %> <%= @carriage.number %></h1>
 
 <% if @carriage.train.nil? %>
   <p><%= t('.no_train') %></p>
@@ -32,5 +32,5 @@
   <%= t('.only_seats') %> <%= @carriage.only_seat %>
 </p>
 
-<%= link_to t('common.edit'), edit_admin_carriage_path(@carriage) %> |
-<%= link_to t('common.back'), [ :admin, @carriage.train ] %>
+<%= link_to t('common.edit'), edit_admin_carriage_path(@carriage), class: 'btn btn-primary' %>
+<%= link_to t('common.back'), [ :admin, @carriage.train ], class: 'btn btn-primary' %>

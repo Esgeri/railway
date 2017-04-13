@@ -1,9 +1,11 @@
 <% carriages.each do |carriage| %>
    <tr>
-   <td><%= "#{carriage.number}" %></td>
-     <td><%= "#{carriage.type}" %></td>
-     <td><%= link_to t('common.show'), [:admin,carriage] %></td>
-     <td><%= link_to t('common.edit'), edit_admin_carriage_path(carriage) %></td>
-     <td><%= link_to t('common.destroy'), [:admin, carriage], method: :delete, data: { confirm: t('.confirm') } %></td>
+    <td><%= "#{carriage.number}" %></td>
+    <td><%= "#{carriage.type}" %></td>
+    <td>
+      <%= link_to t('common.show'), [:admin,carriage] %>
+      <%= link_to t('common.edit'), edit_admin_carriage_path(carriage) %>
+      <%= link_to t('common.destroy'), [:admin, carriage], method: :delete, data: { confirm: t('.confirm') } %>
+    </td>
    </tr>
  <% end %>

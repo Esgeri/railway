@@ -1,17 +1,22 @@
-<h1>Carriages</h1>
+<h1 class="text-center grid-bottom"><%= t('.title') %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Number</th>
-      <th>Type</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
+<div class="col-md-12 col-lg-12">
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th><%= t('.number') %></th>
+        <th><%= t('.type') %></th>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <%= render @carriages %>
-  </tbody>
-</table>
+    <tbody>
+      <%= render @carriages %>
+    </tbody>
+  </table>
 
-<%= link_to t('common.add'), new_admin_carriage_path %>
+  <br />
+
+  <%= link_to t('common.add'), new_admin_carriage_path, class: 'btn btn-primary' %>
+  <%= link_to t('common.back'), admin_welcome_index_path, class: 'btn btn-primary' %>
+</div>
