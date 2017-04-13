@@ -23,3 +23,7 @@ footer {
 .grid-bottom {
   margin-bottom: 50px;
 }
+
+.text-large {
+  font-size: 35px;
+}

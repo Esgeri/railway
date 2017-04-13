@@ -1,11 +1,15 @@
-<h1><%= t('.title') %></h1>
+<h1 class="text-center grid-bottom"><%= t('.title') %></h1>
 
-<p><%= link_to t('.search'), search_path %></p>
+<div class="row">
+  <div class="col-md-4 text-large">
+    <p><%= link_to t('.search'), search_path %></p>
 
-<p><%= link_to t('.railway_stations'), admin_railway_stations_path  %></p>
+    <p><%= link_to t('.railway_stations'), admin_railway_stations_path  %></p>
 
-<p><%= link_to t('.trains'), admin_trains_path %></p>
+    <p><%= link_to t('.trains'), admin_trains_path %></p>
 
-<p><%= link_to t('.routes'), admin_routes_path %></p>
+    <p><%= link_to t('.routes'), admin_routes_path %></p>
 
-<p><%= link_to t('.tickets'), admin_tickets_path %></p>
+    <p><%= link_to t('.tickets'), admin_tickets_path %></p>
+  </div>
+</div>
