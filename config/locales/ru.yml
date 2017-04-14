@@ -1,0 +1,186 @@
+ru:
+  common:
+    errors: 'При заполнении формы возникли ошибки'
+    back: 'Назад'
+    show: 'Показать'
+    edit: 'Редактировать'
+    destroy: 'Удалить'
+    add: 'Добавить'
+    confirm: 'Вы уверены?'
+
+    user_status_notification:
+      hello: 'Привет'
+      mine_tickets: 'Мои билеты'
+      account: 'Аккаунт:'
+      admin_panel: 'Админ панель'
+      log_in: 'Вход'
+      sign_out: 'Выход'
+
+  searches:
+    form:
+      start_station: 'Станция отбытия'
+      end_station: 'Станция прибытия'
+      submit_tag: 'Искать'
+    show:
+      title: 'Страница поиска'
+      not_found: 'Не найдено'
+      train_th: 'Поезд'
+      route_th: 'Маршрут'
+      start_station_th: 'Станция отбытия'
+      end_station_th: 'Станция прибытия'
+      submit_tag: 'Перейти на страницу заказа билета'
+
+  tickets:
+      form:
+        passenger_name: 'Имя пассажира'
+        passport_number: 'Номер пасспорта'
+        submit: 'Купить билет'
+      edit:
+        title: 'Редактировать билет пассажира'
+      new:
+        title: 'Создать билет для пассажира'
+        ticket_info: 'Информация о билете'
+        train_number: 'Номер поезда'
+        route: 'Маршрут'
+        start_station: 'Начальная станция'
+        end_station: 'Конечная станция'
+        passenger_info: 'Информация о пассажире'
+      show:
+        ticket_info: 'Информация о билете'
+        bought_date: 'Дата покупки'
+        customer_email: 'E-mail пассажирa'
+        ticket_number: 'Номер'
+        train_number: 'Номер поезда'
+        start_station: 'Станция отбытия'
+        end_station: 'Станция прибытия'
+      index:
+        title: 'Билеты'
+        ticket_number: 'Номер билета'
+        train_number: 'Номер поезда'
+        ticket_bought: 'Билет покупал'
+        ticket_date: 'Дата покупки'
+        start_station: 'Станция отбытия'
+        end_station: 'Станция прибытия'
+        action: 'Действия'
+
+  admin:
+    routes:
+      form:
+        railway_station_ids: 'Список станций'
+        submit: '%{action} маршрут'
+      edit:
+        title: 'Редактировать'
+      new:
+        title: 'Новый маршрут'
+      show:
+        name: 'Название'
+        station_on_route: 'Станции маршрута'
+        empty_list: 'Нет ни одной станции'
+        station_title: 'Название станции'
+        position: 'Позиция'
+        arrival_time: 'Время отбытия'
+        departure_time: 'Время прибытия'
+        submit_tag: 'Изменить'
+        trains_on_route: 'Поезда маршрута'
+        no_trains: 'Нет ни одного поезда'
+      index:
+        title: 'Список'
+        name: 'Название'
+
+    railway_stations:
+      form:
+        submit: '%{action} станцию'
+      new:
+        title: 'Новая станция'
+      edit:
+        title: 'Редактировать'
+      show:
+        title: 'Станция'
+        off_route: 'Станция не входить ни в один маршрут'
+        on_route: 'Станция входить в следующие маршруты'
+        trains_on_current_station: 'Поезда на текущей станции'
+        no_trains_on_current_station: 'Нет поездов на текущей станции'
+      index:
+        title: 'Станции'
+        name: 'Название'
+
+    carriages:
+      form:
+        carriage_type: 'Тип вагона'
+        submit: '%{action} вагон'
+      new:
+        title: 'Добавить вагон к поезду'
+      edit:
+        title: 'Изменить вагон'
+      show:
+        number: 'Вагон №'
+        no_train: 'Не прицелен к поезду'
+        train_number: 'Номер поезда'
+        carriage_type: 'Тип вагона'
+        top_seats: 'Верхние места'
+        bottom_seats: 'Нижние места'
+        side_top_seats: 'Верхние боковые места'
+        side_bottom_seats: 'Нижние боковые места'
+        only_seats: 'Сидячие места'
+      index:
+        number: 'Номер вагона'
+        type: 'Тип вагона'
+
+
+    trains:
+      form:
+        submit: '%{action} поезд'
+      new:
+        title: 'Новая станция'
+      edit:
+        title: 'Редактировать'
+      show:
+        number: 'Номер'
+        no_carriage: 'Не имеет вагона'
+        carriage_list: 'Список вагонов поезда'
+        on_station: 'Находиться на станции'
+        no_station: 'Не указана станция'
+        on_route: 'Следует по маршруту'
+        no_route: 'Маршрут не указан'
+        add_carriage: 'Добавить вагон'
+      index:
+        trains_list: 'Список поездов'
+        train_number: 'Номера поездов'
+
+    tickets:
+      form:
+        submit: '%{action} билет'
+      edit:
+        title: 'Редактировать билет пассажира'
+      new:
+        title: 'Создать билет для пассажира'
+      show:
+        ticket_info: 'Информация о билете'
+        ticket_number: 'Номер'
+        train_number: 'Номер поезда'
+        customer_name: 'Пассажир'
+        customer_email: 'E-mail пассажирa'
+        bought_date: 'Дата покупки'
+        ticket_route: 'Маршрут'
+        start_station: 'Станция отбытия'
+        end_station: 'Станция прибытия'
+        passenger_info: 'Информация о пассажире'
+        passenger_name: 'Имя пассажира'
+        passport_number: 'Номер пасспорта'
+      index:
+        title: 'Билеты'
+        ticket_number: 'Номер билета'
+        train_number: 'Номер поезда'
+        start_station: 'Станция отбытия'
+        end_station: 'Станция прибытия'
+        customer: 'Покупатель билета'
+        action: 'Действия'
+
+    welcome:
+      index:
+        title: 'Добро пожаловать в Админ панель'
+        railway_stations: 'Станции'
+        trains: 'Поезда'
+        routes: 'Маршруты'
+        tickets: 'Билеты'
+        search: 'Поиск станций'

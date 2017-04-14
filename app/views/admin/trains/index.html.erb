@@ -1,20 +1,21 @@
-<p id="notice"><%= notice %></p>
+<h1 class="text-center text-large grid-bottom"><%= t('.trains_list') %></h1>
 
-<h1>Trains list:</h1>
+<div class="col-md-10">
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th><%= t('.train_number') %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Train number:</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <tbody>
+      <%= render @trains %>
+    </tbody>
+  </table>
 
-  <tbody>
-    <%= render @trains %>
-  </tbody>
-</table>
+  <br>
 
-<br>
-
-<%= link_to 'New Train', new_admin_train_path %>
+  <%= link_to t('common.add'), new_admin_train_path, class: 'btn btn-primary' %>
+  <%= link_to t('common.back'), admin_welcome_index_path, class: 'btn btn-primary' %>
+</div>

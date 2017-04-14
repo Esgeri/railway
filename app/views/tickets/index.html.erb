@@ -1,19 +1,20 @@
-<p id="notice"><%= notice %></p>
+<h1 class="text-center grid-bottom"><%= t('.title') %></h1>
 
-<h1>Ticket order information</h1>
+<div class="col-md-12 col-lg-12">
+  <table class="table table-striped table-bordered">
+    <thead>
+      <th><%= t('.ticket_number') %></th>
+      <th><%= t('.ticket_bought') %></th>
+      <th><%= t('.ticket_date') %></th>
+      <th><%= t('.train_number') %></th>
+      <th><%= t('.start_station') %></th>
+      <th><%= t('.end_station') %></th>
+      <th colspan="3"><%= t('.action') %></th>
+    </thead>
+    <tbody>
+      <%= render @tickets %>
+    </tbody>
+  </table>
 
-<table>
-  <thead>
-    <th>Ticket number</th>
-    <th>Ticket bought:</th>
-    <th>Bought date:</th>
-    <th>Train number</th>
-    <th>Start station</th>
-    <th>End station</th>
-  </thead>
-  <tbody>
-    <%= render @tickets %>
-  </tbody>
-</table>
-
-<%= link_to 'Back', search_path %>
+  <%= link_to t('common.back'),  search_path, class: 'btn btn-primary' %>
+</div>

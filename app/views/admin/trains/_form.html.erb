@@ -1,27 +1,21 @@
-<%= form_for([:admin, @train]) do |f| %>
-  <%= render 'common/errors', resource: @train %>
+<div class="row grid-bottom">
+  <%= form_for([:admin, @train]) do |f| %>
+    <%= render 'common/errors', resource: @train %>
 
-  <div class="field">
-    <%= f.label :number %>
-    <%= f.text_field :number %>
-  </div>
+    <div class="col-md-4 col-lg-3">
+      <%= f.label :number %>
+      <%= f.text_field :number, class: 'form-control grid-bottom-small' %>
 
-  <div class="field">
-    <%= f.label :current_station, "Current station" %>
-    <%= f.collection_select :current_station_id, RailwayStation.all, :id, :title %>
-  </div>
+      <%= f.label :current_station %>
+      <%= f.collection_select :current_station_id, RailwayStation.all, :id, :title, {}, { class: 'form-control grid-bottom-small' } %>
 
-  <div class="field">
-    <%= f.label :route, "Current route" %>
-    <%= f.collection_select :route_id, Route.all, :id, :name %>
-  </div>
+      <%= f.label :route %>
+      <%= f.collection_select :route_id, Route.all, :id, :name, {}, { class: 'form-control grid-bottom-small' } %>
 
-  <div class="field">
-    <%= f.label :sort_carriage, "ASC sort" %>
-    <%= f.check_box :sort_carriage %>
-  </div>
+      <%= f.label :sort_carriage %>
+      <%= f.check_box :sort_carriage %>
 
-  <div class="actions">
-    <%= f.submit "#{ @train.new_record? ? 'Create' : 'Update' }" %>
-  </div>
-<% end %>
+      <%= f.submit t('.submit', action: @train.new_record? ? 'Создать' : 'Изменить'), class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

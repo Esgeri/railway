@@ -1,39 +1,29 @@
-<%= form_for([:admin, @ticket]) do |f| %>
-  <%= render 'common/errors', resource: @ticket %>
+<div class="row grid-bottom">
+  <%= form_for([:admin, @ticket]) do |f| %>
+    <%= render 'common/errors', resource: @ticket %>
 
-  <%= f.hidden_field :number %>
+    <%= f.hidden_field :number %>
 
-  <div class="field">
-   <%= f.label :passenger_name, 'Passenger name' %>
-   <%= f.text_field :passenger_name %>
-  </div>
+    <div class="col-md-4 col-lg-3">
+     <%= f.label :passenger_name %>
+     <%= f.text_field :passenger_name, class: 'form-control' %>
 
-  <div class="field">
-   <%= f.label :passport_number, 'Passport number' %>
-   <%= f.text_field :passport_number %>
-  </div>
+     <%= f.label :passport_number %>
+     <%= f.text_field :passport_number, class: 'form-control' %>
 
-  <div class="field">
-   <%= f.label :user, "Customer" %>
-   <%= f.collection_select :user_id, User.all, :id, :email %>
-  </div>
+     <%= f.label :user %>
+     <%= f.collection_select :user_id, User.all, :id, :email, {}, { class: 'form-control' } %>
 
-  <div class="field">
-   <%= f.label :train, "Train" %>
-   <%= f.collection_select :train_id, Train.all, :id, :number %>
-  </div>
+     <%= f.label :train %>
+     <%= f.collection_select :train_id, Train.all, :id, :number, {}, { class: 'form-control' } %>
 
-  <div class="field">
-   <%= f.label :start_station, "Start station" %>
-   <%= f.collection_select :start_station_id, RailwayStation.all, :id, :title %>
-  </div>
+     <%= f.label :start_station %>
+     <%= f.collection_select :start_station_id, RailwayStation.all, :id, :title, {}, { class: 'form-control' } %>
 
-  <div class="field">
-   <%= f.label :end_station, "End station" %>
-   <%= f.collection_select :end_station_id, RailwayStation.all, :id, :title %>
-  </div>
+     <%= f.label :end_station %>
+     <%= f.collection_select :end_station_id, RailwayStation.all, :id, :title, {}, { class: 'form-control' } %>
 
-  <div class="actions">
-   <%= f.submit "#{ @ticket.new_record? ? 'Create' : 'Update ' }"%>
-  </div>
-<% end %>
+     <%= f.submit t('.submit', action:  @ticket.new_record? ? 'Создать' : 'Изменить'), class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
