@@ -8,7 +8,22 @@ class Ticket < ApplicationRecord
 
   before_validation :set_number
 
+  after_create :send_notification
+  after_destroy :send_cancel_notification
+
+  def route_name
+    "#{start_station.title} - #{end_station.title}"
+  end
+
   private
+
+  def send_notification
+    TicketsMailer.buy_ticket(self.user, self).deliver_now
+  end
+
+  def send_cancel_notification
+    TicketsMailer.cancel_ticket(self.user, self).deliver_now
+  end
 
   def set_number
     number = Ticket.maximum(:number).to_i || 1
