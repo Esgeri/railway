@@ -84,5 +84,17 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: "intense-garden-93506.herokuapp.com" }
+  config.action_mailer.default_url_options = { host: 'mighty-lowlands-36660.herokuapp.com' }
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.perform_deliveries = true
+
+  ActionMailer::Base.smtp_settings = {
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    authentication: 'plain',
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_PASSWORD'],
+    domain: 'mighty-lowlands-36660.herokuapp.com',
+    enable_starttls_auto: true
+  }
 end
