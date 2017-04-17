@@ -1,4 +1,4 @@
-<div class="row grid-bottom">
+<div class="row">
   <%= form_for [:admin, @train, @carriage] do |f| %>
     <%= render 'common/errors', resource: @carriage %>
 
@@ -6,8 +6,8 @@
       <%= f.label :number %><br>
       <%= f.text_field :number, class: 'form-control' %>
 
-      <%= f.label t('.carriage_type') %><br>
-      <%= f.select :carriage_type, ["Economy", "Coupe", "OnlySeatCarriage", "CBCarriage"], {}, { class: 'form-control' } %>
+      <%= f.label t('.type') %><br>
+      <%= f.select :type, ["EconomyCarriage", "CoupeCarriage", "SeatCarriage", "CbCarriage"], {}, { class: 'form-control' } %>
 
       <%= f.label :top_seats %><br>
       <%= f.number_field :top_seats, class: 'form-control' %>

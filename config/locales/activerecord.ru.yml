@@ -24,7 +24,7 @@ ru:
         name: 'Название'
       carriage:
         number: 'Номер'
-        carriage_type: 'Тип вагона'
+        type: 'Тип вагона'
         top_seats: 'Верхние места'
         bottom_seats: 'Нижние места'
         side_top_seats: 'Верхние боковые места'
