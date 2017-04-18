@@ -1,13 +1,6 @@
 <h1 class='text-center grid-bottom'><%= t('.title') %></h1>
 
-<p>
-  <% if !user_signed_in? %>
-    <p class="text-large"><%= link_to t('.sign_in'), new_user_session_path, class: 'btn btn-primary' %></p>
-    <p class="text-large"><%= link_to t('.sign_up'), new_user_registration_path, class: 'btn btn-success' %></p>
-  <% else %>
-    <%= render 'form' %>
-  <% end %>
-</p>
+<%= render 'form' %>
 
 <div class="row">
   <div class="container">
@@ -44,7 +37,11 @@
                     <%= hidden_field_tag :train_id, train.id %>
                     <%= hidden_field_tag :start_station_id, @search.start_station_id %>
                     <%= hidden_field_tag :end_station_id, @search.end_station_id %>
-                    <%= submit_tag t('.submit_tag'), class: 'btn btn-danger' %>
+                    <% if user_signed_in? %>
+                      <%= submit_tag t('.submit_tag'), class: 'btn btn-danger' %>
+                    <% else %>
+                      <%= link_to t('.submit_tag'), new_user_session_path, class: 'btn btn-danger' %>
+                    <% end %>
                   <% end %>
                 </td>
               </tr>

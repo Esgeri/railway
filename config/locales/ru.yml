@@ -23,8 +23,6 @@ ru:
       submit_tag: 'Искать'
     show:
       title: 'Страница поиска'
-      sign_in: 'Войти'
-      sign_up: 'Зарегистрироваться'
       not_found: 'Не найдено'
       train_th: 'Поезд'
       route_th: 'Маршрут'
