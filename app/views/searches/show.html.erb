@@ -1,6 +1,13 @@
 <h1 class='text-center grid-bottom'><%= t('.title') %></h1>
 
-<%= render 'form' %>
+<p>
+  <% if !user_signed_in? %>
+    <p class="text-large"><%= link_to t('.sign_in'), new_user_session_path, class: 'btn btn-primary' %></p>
+    <p class="text-large"><%= link_to t('.sign_up'), new_user_registration_path, class: 'btn btn-success' %></p>
+  <% else %>
+    <%= render 'form' %>
+  <% end %>
+</p>
 
 <div class="row">
   <div class="container">
