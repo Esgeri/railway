@@ -10,16 +10,16 @@
     <% else %>
       <p>
          <strong><%= t('.carriage_list') %></strong>
-         <ol class="table table-bordered">
+         <ul class="table table-bordered">
            <% @train.sort_carriages.each do |carriage| %>
             <li>
-              <%= link_to "Carriage number: #{carriage.number}", admin_carriage_path(carriage) %>
+              <%= link_to "№ #{carriage.number}", admin_carriage_path(carriage) %>
               <%= link_to t('common.show'), admin_carriage_path(carriage) %> |
               <%= link_to t('common.edit'), edit_admin_carriage_path(carriage) %> |
               <%= link_to t('common.destroy'), admin_carriage_path(carriage), method: :delete, data: { confirm: t('common.confirm') } %>
             </li>
            <% end %>
-         </ol>
+         </ul>
       </p>
     <% end %>
 

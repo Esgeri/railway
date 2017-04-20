@@ -13,7 +13,7 @@ class TicketsController < ApplicationController
     @ticket = current_user.tickets.new(ticket_params)
 
     if @ticket.save
-      redirect_to @ticket, notice: 'Thanks for bought!'
+      redirect_to @ticket
     else
       render :new
     end
@@ -27,7 +27,7 @@ class TicketsController < ApplicationController
 
   def destroy
     @ticket.destroy
-    redirect_to tickets_path, 'Ticket was successfully deleted.'
+    redirect_to tickets_path
   end
 
   private

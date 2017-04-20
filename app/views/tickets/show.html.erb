@@ -8,6 +8,7 @@
     <th><%= t('.end_station') %></th>
     <th><%= t('.bought_date') %></th>
     <th><%= t('.customer_email') %></th>
+    <th></th>
   </thead>
 
   <tbody>
@@ -18,6 +19,7 @@
       <td><%= @ticket.end_station.title %></td>
       <td><%= @ticket.created_at.strftime '%d.%m.%Y %H:%M' %></td>
       <td><%= @ticket.user.email %></td>
+      <td><%= link_to t('common.destroy'), ticket_path(@ticket), method: :delete, data: { confirm: t('common.confirm') } %></td>
     </tr>
   </tbody>
 </table>

@@ -106,7 +106,7 @@ ru:
 
     carriages:
       form:
-        carriage_type: 'Тип вагона'
+        type: 'Тип вагона'
         submit: '%{action} вагон'
       new:
         title: 'Добавить вагон к поезду'
@@ -116,7 +116,7 @@ ru:
         number: 'Вагон №'
         no_train: 'Не прицелен к поезду'
         train_number: 'Номер поезда'
-        carriage_type: 'Тип вагона'
+        type: 'Тип вагона'
         top_seats: 'Верхние места'
         bottom_seats: 'Нижние места'
         side_top_seats: 'Верхние боковые места'
