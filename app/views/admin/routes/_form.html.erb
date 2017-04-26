@@ -1,6 +1,6 @@
 <div class="row grid-bottom">
-  <%= form_for([:admin, @route]) do |f| %>
-    <%= render 'common/errors', resource: @route %>
+  <%= form_for([:admin, route], html: { style: "display: #{hidden ? 'none' : 'block'}" }) do |f| %>
+    <%= render 'common/errors', resource: route %>
 
     <div class="col-md-4 col-lg-3">
       <%= f.label :name %>
@@ -9,7 +9,7 @@
       <%= f.label t('.railway_station_ids') %>
       <%= f.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { multiple: true, class: 'form-control grid-bottom-small' } %>
 
-      <%= f.submit t('.submit', action: @route.new_record? ? 'Создать' : 'Изменить'), class: 'btn btn-primary' %>
+      <%= f.submit t('.submit', action: route.new_record? ? 'Создать' : 'Изменить'), class: 'btn btn-primary' %>
     </div>
   <% end %>
 </div>
