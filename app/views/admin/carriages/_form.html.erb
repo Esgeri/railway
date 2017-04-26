@@ -1,5 +1,5 @@
 <div class="row">
-  <%= form_for [:admin, @train, @carriage] do |f| %>
+  <%= form_for [@train, @carriage], url: admin_train_carriages_path do |f| %>
     <%= render 'common/errors', resource: @carriage %>
 
     <div class="col-md-4 col-lg-4">
@@ -9,20 +9,30 @@
       <%= f.label t('.type') %><br>
       <%= f.select :type, ["EconomyCarriage", "CoupeCarriage", "SeatCarriage", "CbCarriage"], {}, { class: 'form-control' } %>
 
-      <%= f.label :top_seats %><br>
-      <%= f.number_field :top_seats, class: 'form-control' %>
+      <div class="top_seats">
+        <%= f.label :top_seats %><br>
+        <%= f.number_field :top_seats, class: 'form-control' %>
+      </div>
 
-      <%= f.label :bottom_seats %><br>
-      <%= f.number_field :bottom_seats, class: 'form-control' %>
+      <div class="bottom_seats">
+        <%= f.label :bottom_seats %><br>
+        <%= f.number_field :bottom_seats, class: 'form-control' %>
+      </div>
 
-      <%= f.label :side_top_seats %><br>
-      <%= f.number_field :side_top_seats, class: 'form-control' %>
+      <div class="side_top_seats">
+        <%= f.label :side_top_seats %><br>
+        <%= f.number_field :side_top_seats, class: 'form-control' %>
+      </div>
 
-      <%= f.label :side_bottom_seats %><br>
-      <%= f.number_field :side_bottom_seats, class: 'form-control' %>
+      <div class="side_bottom_seats">
+        <%= f.label :side_bottom_seats %><br>
+        <%= f.number_field :side_bottom_seats, class: 'form-control' %>
+      </div>
 
-      <%= f.label :only_seat %><br>
-      <%= f.number_field :only_seat, class: 'form-control' %>
+      <div class="only_seat">
+        <%= f.label :only_seat %><br>
+        <%= f.number_field :only_seat, class: 'form-control' %>
+      </div>
 
       <%= f.submit t('.submit', action: @carriage.new_record? ? 'Добавить' : 'Изменить'), class: 'btn btn-primary' %>
     </div>
