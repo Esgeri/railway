@@ -8,29 +8,39 @@
   </p>
 <% end %>
 
-<p>
-  <%= t('.type') %> <%= @carriage.carriage_type %>
+<p class="type">
+  <%= t('.type') %> <%= @carriage.type %>
 </p>
 
-<p>
-  <%= t('.top_seats') %> <%= @carriage.top_seats %>
-</p>
+<% if @carriage.top_seats.present? %>
+  <p class="top_seats">
+    <%= t('.top_seats') %> <%= @carriage.top_seats %>
+  </p>
+<% end %>
 
-<p>
-  <%= t('.bottom_seats') %> <%= @carriage.bottom_seats %>
-</p>
+<% if @carriage.bottom_seats.present? %>
+  <p class="bottom_seats">
+    <%= t('.bottom_seats') %> <%= @carriage.bottom_seats %>
+  </p>
+<% end %>
 
-<p>
-  <%= t('.side_top_seats') %> <%= @carriage.side_top_seats %>
-</p>
+<% if @carriage.side_top_seats.present? %>
+  <p class="side_top_seats">
+    <%= t('.side_top_seats') %> <%= @carriage.side_top_seats %>
+  </p>
+<% end %>
 
-<p>
-  <%= t('.side_bottom_seats') %> <%= @carriage.side_bottom_seats %>
-</p>
+<% if @carriage.side_bottom_seats.present? %>
+  <p class="side_bottom_seats">
+    <%= t('.side_bottom_seats') %> <%= @carriage.side_bottom_seats %>
+  </p>
+<% end %>
 
-<p>
-  <%= t('.only_seats') %> <%= @carriage.only_seat %>
-</p>
+<% if @carriage.only_seat.present? %>
+  <p class="only_seats">
+    <%= t('.only_seats') %> <%= @carriage.only_seat %>
+  </p>
+<% end %>
 
 <%= link_to t('common.edit'), edit_admin_carriage_path(@carriage), class: 'btn btn-primary' %>
 <%= link_to t('common.back'), [ :admin, @carriage.train ], class: 'btn btn-primary' %>

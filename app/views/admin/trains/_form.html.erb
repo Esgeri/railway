@@ -1,6 +1,7 @@
 <div class="row grid-bottom">
-  <%= form_for([:admin, @train]) do |f| %>
-    <%= render 'common/errors', resource: @train %>
+  <% hidden = false unless local_assigns[:hidden] %>
+  <%= form_for([:admin, train], html: { style: "display: #{hidden ? 'none' : 'block'}" }) do |f| %>
+    <%= render 'common/errors', resource: train %>
 
     <div class="col-md-4 col-lg-3">
       <%= f.label :number %>
@@ -15,7 +16,7 @@
       <%= f.label :sort_carriage %>
       <%= f.check_box :sort_carriage %>
 
-      <%= f.submit t('.submit', action: @train.new_record? ? 'Создать' : 'Изменить'), class: 'btn btn-primary' %>
+      <%= f.submit t('.submit', action: train.new_record? ? 'Создать' : 'Изменить'), class: 'btn btn-primary' %>
     </div>
   <% end %>
 </div>

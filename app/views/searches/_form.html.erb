@@ -1,5 +1,5 @@
 <div class="row grid-bottom">
-  <%= form_for :search do |f| %>
+  <%= form_for :search, html: {class: 'search_form'} do |f| %>
     <div class="col-md-4 col-lg-3">
       <%= f.label t('.start_station') %>
       <%= f.collection_select :start_station_id, RailwayStation.ordered, :id, :title, {}, { class: 'form-control' } %>
@@ -12,7 +12,7 @@
 
     <div class="col-md-4 col-lg-2">
       <br />
-      <%= submit_tag t('.submit_tag'), class: 'btn btn-primary' %>
+      <%= f.submit t('.submit_tag'), class: 'btn btn-primary' %>
     </div>
   <% end %>
 </div>
