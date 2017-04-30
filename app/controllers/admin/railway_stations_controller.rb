@@ -6,15 +6,13 @@ class Admin::RailwayStationsController < Admin::BaseController
     @railway_stations = RailwayStation.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @railway_station = RailwayStation.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @railway_station = RailwayStation.new(railway_station_params)
@@ -41,12 +39,12 @@ class Admin::RailwayStationsController < Admin::BaseController
 
   def update_position
     @railway_station.update_position(@route, params[:position])
-    redirect_to [ :admin, @route ]
+    redirect_to [:admin, @route]
   end
 
   def update_time
     @railway_station.change_time(@route, params[:arrival_time], params[:departure_time])
-    redirect_to [ :admin, @route ]
+    redirect_to [:admin, @route]
   end
 
   private

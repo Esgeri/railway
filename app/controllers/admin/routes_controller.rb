@@ -9,17 +9,15 @@ class Admin::RoutesController < Admin::BaseController
     @route = Route.new
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @route = Route.new(route_params)
 
     if @route.save
-      redirect_to [ :admin, @route ]
+      redirect_to [:admin, @route]
     else
       render :new
     end

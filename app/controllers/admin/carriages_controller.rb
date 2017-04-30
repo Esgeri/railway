@@ -1,26 +1,24 @@
 class Admin::CarriagesController < Admin::BaseController
-  before_action :set_train, only: [ :new, :create, :index ]
-  before_action :set_carriage, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_train, only: [:new, :create, :index]
+  before_action :set_carriage, only: [:show, :edit, :update, :destroy]
 
   def index
     redirect_to admin_train_carriages_path
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @carriage = Carriage.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @carriage = @train.carriages.new(carriage_params)
 
     if @carriage.save
-      redirect_to [ :admin, @carriage.train ]
+      redirect_to [:admin, @carriage.train]
     else
       render :new
     end
@@ -28,7 +26,7 @@ class Admin::CarriagesController < Admin::BaseController
 
   def update
     if @carriage.update(carriage_params)
-      redirect_to [ :admin, @carriage.train ]
+      redirect_to [:admin, @carriage.train]
     else
       render :edit
     end
@@ -52,11 +50,11 @@ class Admin::CarriagesController < Admin::BaseController
 
   def carriage_params
     params.require(:carriage).permit(:type,
-                                                           :number,
-                                                           :top_seats,
-                                                           :bottom_seats,
-                                                           :side_top_seats,
-                                                           :side_bottom_seats,
-                                                           :only_seat)
+                                     :number,
+                                     :top_seats,
+                                     :bottom_seats,
+                                     :side_top_seats,
+                                     :side_bottom_seats,
+                                     :only_seat)
   end
 end

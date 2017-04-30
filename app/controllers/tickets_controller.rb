@@ -1,13 +1,12 @@
 class TicketsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
-  before_action :set_ticket, only: [ :show, :destroy ]
+  before_action :set_ticket, only: [:show, :destroy]
 
   def index
     @tickets = current_user.tickets
   end
 
-  def show
-  end
+  def show; end
 
   def create
     @ticket = current_user.tickets.new(ticket_params)
@@ -33,10 +32,12 @@ class TicketsController < ApplicationController
   private
 
   def set_ticket
-    @ticket  = current_user.tickets.find(params[:id])
+    @ticket = current_user.tickets.find(params[:id])
   end
 
+  # rubocop:disable Metrics/LineLength
   def ticket_params
     params.require(:ticket).permit(:train_id, :start_station_id, :end_station_id, :passenger_name, :passport_number, :number)
   end
+  # rubocop:enable Metrics/LineLength
 end

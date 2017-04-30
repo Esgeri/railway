@@ -5,15 +5,13 @@ class Admin::TrainsController < Admin::BaseController
     @trains = Train.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @train = Train.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @train = Train.new(train_params)

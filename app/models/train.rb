@@ -7,7 +7,7 @@ class Train < ApplicationRecord
   validates :number, presence: true
 
   def sort_carriages
-    self.sort_carriage ? self.carriages.sort_az : self.carriages.sort_za
+    sort_carriage ? carriages.sort_az : carriages.sort_za
   end
 
   def show_carriages_count_by_type(carriage_type, place_type)

@@ -1,5 +1,5 @@
 class Admin::TicketsController < Admin::BaseController
-  before_action :set_ticket, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 
   def index
     @tickets = Ticket.all
@@ -12,17 +12,15 @@ class Admin::TicketsController < Admin::BaseController
                                         user_id: params[:user_id])
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @ticket = Ticket.new(ticket_params)
 
     if @ticket.save
-      redirect_to [ :admin, @ticket ]
+      redirect_to [:admin, @ticket]
     else
       render :new
     end
@@ -49,11 +47,11 @@ class Admin::TicketsController < Admin::BaseController
 
   def ticket_params
     params.require(:ticket).permit(:train_id,
-                                                       :start_station_id,
-                                                       :end_station_id,
-                                                       :passenger_name,
-                                                       :passport_number,
-                                                       :number,
-                                                       :user_id)
+                                   :start_station_id,
+                                   :end_station_id,
+                                   :passenger_name,
+                                   :passport_number,
+                                   :number,
+                                   :user_id)
   end
 end

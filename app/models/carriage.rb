@@ -2,7 +2,7 @@ class Carriage < ApplicationRecord
   belongs_to :train
 
   validates :number, presence: true,
-                  numericality: {only_integer: true, greater_than_or_equal_to: 0}
+                  numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   validates :number, uniqueness: { scope: :train_id }
 

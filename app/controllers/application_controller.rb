@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(*)
     if current_user.admin?
       admin_welcome_index_path
     else
